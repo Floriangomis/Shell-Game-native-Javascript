@@ -74,6 +74,7 @@ define(
 					animationBallToCup.call( this );
 					setTimeout(function () {
 						this.presenter.ballPlaced( this.element );
+						this.cupClicked = false;
 					}.bind( this ), 1000);
 				}
 			};
@@ -88,10 +89,6 @@ define(
 				this.ball.style.left = ( event.target.getBoundingClientRect().left + event.target.getBoundingClientRect().width/2 - this.ball.getBoundingClientRect().width/2 ) + 'px';
 				this.ball.style.top = ( event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height/2 - this.ball.getBoundingClientRect().height/2 )+ 'px';
 				this.ball.style.visibility = 'hidden';
-				// Otherwise the winning cup will not be click-able
-				if( this.cupClicked ){
-					this.cupClicked = false;
-				}
 			}
 
 			var unbindClickOnElement = function(){
